@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       }
     ]
   },
+  // cacheComponents: true,
   reactCompiler: true,
 };
 

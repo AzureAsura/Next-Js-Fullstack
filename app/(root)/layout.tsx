@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import React from "react";
-
+import { Suspense } from "react";
 
 export default function Layout({
   children,
@@ -9,7 +9,9 @@ export default function Layout({
 }>) {
   return (
     <main className="font-work-sans">
-    <Navbar/> 
+
+        <Navbar /> 
+
     
      {children}
     </main>
