@@ -35,12 +35,13 @@ export default async function Home({
             Pitch your startup, <br /> Connect with entrepreneur
           </h1>
 
+        </div>
+        
           <p className="sub-heading text-white/90 !max-w-3xl">
             Submit ideas, vote on pitches, and get noticed in virtual competitions
           </p>
 
-          <SearchForm query={query} />
-        </div>
+        <SearchForm query={query} />
       </section>
 
       <section className="section_container">
