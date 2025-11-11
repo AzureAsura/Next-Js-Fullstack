@@ -76,3 +76,11 @@ export const STARTUPS_BY_AUTHOR_QUERY = defineQuery(
     category,
     image
 }`)
+
+export const DELETE_PITCH_BY_ID = defineQuery(`
+    *[_type == "startup" && _id == $id][0]{ _id, "authorId": author._ref }
+`)
+
+export const UPDATE_PITCH_BY_ID = defineQuery(`
+    *[_type == "startup" && _id == $id][0]{ _id, "authorId": author._ref }
+`)
