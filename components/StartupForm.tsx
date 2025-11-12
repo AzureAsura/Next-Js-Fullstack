@@ -14,10 +14,10 @@ import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
     const [errors, setErrors] = useState<Record<string, string>>({})
+    const [pitch, setPitch] = React.useState("");
     const { toast } = useToast()
     const router = useRouter()
 
-    const [pitch, setPitch] = React.useState("");
 
     const handleFormSubmit = async (prevState: any, formData: FormData) => {
         try {
@@ -30,8 +30,6 @@ const StartupForm = () => {
             }
 
             await formSchema.parseAsync(formValues)
-
-            // console.log(formValues)
 
 
             const result = await createPitch(prevState, formData, pitch)
