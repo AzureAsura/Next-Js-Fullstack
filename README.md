@@ -57,4 +57,4 @@ It features a complete **CRUD system (Create, Read, Update, Delete)**, an **admi
 
 > 📸 Homepage preview
 
-![Homepage](/public/sshome.jpg)
+![Homepage](/public/sshome.png)
