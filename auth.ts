@@ -1,8 +1,8 @@
-import NextAuth from 'next-auth'
-import GitHub from "next-auth/providers/github"
-import { client } from "./sanity/lib/client"
-import { AUTHOR_BY_GITHUB_ID_QUERY } from "./lib/queris"
-import { writeClient } from "./sanity/lib/write-client"
+import NextAuth from "next-auth";
+import GitHub from "next-auth/providers/github";
+import { AUTHOR_BY_GITHUB_ID_QUERY } from "./lib/queris";
+import { client } from "@/sanity/lib/client";
+import { writeClient } from "@/sanity/lib/write-client";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [GitHub],
@@ -31,8 +31,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
       return true;
     },
-
-
     async jwt({ token, account, profile }) {
       if (account && profile) {
         const user = await client
@@ -50,5 +48,5 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       Object.assign(session, { id: token.id });
       return session;
     },
-  }
-})
+  },
+});
