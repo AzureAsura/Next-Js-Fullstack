@@ -11,12 +11,10 @@ const page = async () => {
     return (
         <div>
             <div className="relative w-full min-h-[230px] flex flex-col justify-center items-center py-10 px-6 overflow-hidden">
-                <Image
+                <img
                     src="/container2.jpg"
                     alt="Background"
-                    fill
-                    priority
-                    className="object-cover object-center -z-10"
+                    className="absolute inset-0 w-full h-full object-cover object-center -z-10"
                 />
 
                 <div className="absolute inset-0 bg-black/50 -z-10" />
@@ -25,10 +23,9 @@ const page = async () => {
                     Submit your startup
                 </h1>
             </div>
-
             <StartupForm />
-
         </div>
+
     )
 }
 

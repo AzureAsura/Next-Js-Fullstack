@@ -20,12 +20,10 @@ export default async function Home({
   return (
     <>
       <section className="relative w-full min-h-[530px] flex flex-col justify-center items-center py-10 px-6 overflow-hidden">
-        <Image
+        <img
           src="/container.avif"
           alt="Background image"
-          fill
-          priority
-          className="object-cover object-center -z-10"
+          className="absolute inset-0 w-full h-full object-cover object-center -z-10"
         />
 
         <div className="absolute inset-0 bg-black/50 -z-10" />
@@ -34,15 +32,15 @@ export default async function Home({
           <h1 className="heading text-white">
             Pitch your startup, <br /> Connect with entrepreneur
           </h1>
-
         </div>
-        
-          <p className="sub-heading text-white/90 !max-w-3xl">
-            Submit ideas, vote on pitches, and get noticed in virtual competitions
-          </p>
+
+        <p className="sub-heading text-white/90 !max-w-3xl">
+          Submit ideas, vote on pitches, and get noticed in virtual competitions
+        </p>
 
         <SearchForm query={query} />
       </section>
+
 
       <section className="section_container">
         <p className="text-30-semibold">

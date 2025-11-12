@@ -32,12 +32,10 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
     return (
         <div>
             <div className="relative !min-h-[230px] flex flex-col items-center justify-center text-center px-6 py-10">
-                <Image
+                <img
                     src="/container2.jpg"
                     alt="Background"
-                    fill
-                    className="object-cover z-0"
-                    priority
+                    className="absolute inset-0 w-full h-full object-cover z-0"
                 />
                 <div className="absolute inset-0 bg-black/40 z-[1]" />
 
@@ -47,6 +45,7 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     <p className="sub-heading !max-w-5xl">{post.description}</p>
                 </div>
             </div>
+
 
 
             <div className='section_container'>
