@@ -7,39 +7,14 @@ import { writeClient } from "./sanity/lib/write-client"
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [GitHub],
   callbacks: {
-    // async signIn({
-    //   user: { name, email, image },
-    //   profile: { id, login, bio }
+    async signIn({
+      user: { name, email, image },
+      profile: { id, login, bio }
 
-    // }) {
-    //   const existingUser = await client.fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
-    //     id
-    //   })
-
-    //   if (!existingUser) {
-    //     await writeClient.create({
-    //       _type: 'author',
-    //       id,
-    //       name,
-    //       username: login,
-    //       email,
-    //       image,
-    //       bio: bio || ""
-    //     })
-    //   }
-    //   return true
-
-    // },
-
-    async signIn({ user, profile }) {
-      const { name, email, image } = user
-      const id = profile?.id
-      const login = profile?.login
-      const bio = profile?.bio
-
-      if (!id) return false // kalau profile.id gak ada, stop login
-
-      const existingUser = await client.fetch(AUTHOR_BY_GITHUB_ID_QUERY, { id })
+    }) {
+      const existingUser = await client.fetch(AUTHOR_BY_GITHUB_ID_QUERY, {
+        id
+      })
 
       if (!existingUser) {
         await writeClient.create({
@@ -49,12 +24,37 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           username: login,
           email,
           image,
-          bio: bio || "",
+          bio: bio || ""
         })
       }
-
       return true
+
     },
+
+    // async signIn({ user, profile }) {
+    //   const { name, email, image } = user
+    //   const id = profile?.id
+    //   const login = profile?.login
+    //   const bio = profile?.bio
+
+    //   if (!id) return false 
+
+    //   const existingUser = await client.fetch(AUTHOR_BY_GITHUB_ID_QUERY, { id })
+
+    //   if (!existingUser) {
+    //     await writeClient.create({
+    //       _type: 'author',
+    //       id,
+    //       name,
+    //       username: login,
+    //       email,
+    //       image,
+    //       bio: bio || "",
+    //     })
+    //   }
+
+    //   return true
+    // },
 
 
     async jwt({ token, account, profile }) {
